@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileClient.Views.LoginView">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource firstPageStyle}">
+
+            <StackLayout Grid.Row="0">
+                <Label 
+                    Text="Crypto Tracker"
+                    Style="{StaticResource headerStyle}"/>
+            </StackLayout>
+            <BoxView
+                Grid.Row="1"
+                Style="{StaticResource middleBoxViewStyle}">
+                
+            </BoxView>
+            <StackLayout
+                Grid.Row="2"
+                Style="{StaticResource bottomContentLayout}">
+                <Label 
+                    Style="{StaticResource bottomContentLabel}"
+                    Text="Login"/>
+                <Grid
+                    Style="{StaticResource bottomContentGrid}">
+                    <Label 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Style="{StaticResource baseLabelStyle}"
+                        Text="Username"/>
+                    <Entry 
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Style="{StaticResource baseEntryStyle}"
+                        Placeholder="Username"/>
+
+                    <Label 
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Style="{StaticResource baseLabelStyle}"
+                        Text="Password"/>
+                    <Entry 
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Style="{StaticResource baseEntryStyle}"
+                        Placeholder="Password"
+                        IsPassword="True"/>
+                </Grid>
+
+                <Label 
+                    Style="{StaticResource linkLabel}"
+                    Text="Have no account? Register here.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button
+                    Style="{StaticResource bottomContentButton}"
+                    Text="Login"
+                    Command="{Binding LoginCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

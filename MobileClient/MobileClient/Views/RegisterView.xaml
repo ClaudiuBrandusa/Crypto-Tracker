@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileClient.Views.RegisterView">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource firstPageStyle}">
+
+            <StackLayout Grid.Row="0">
+                <Label 
+                    Text="Crypto Tracker"
+                    Style="{StaticResource headerStyle}"/>
+            </StackLayout>
+            <BoxView
+                Grid.Row="1"
+                Style="{StaticResource middleBoxViewStyle}">
+
+            </BoxView>
+            <StackLayout
+                Grid.Row="2"
+                Style="{StaticResource bottomContentLayout}">
+                <Label 
+                    Style="{StaticResource bottomContentLabel}"
+                    Text="Register"/>
+                <ScrollView>
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Grid
+                            Style="{StaticResource bottomContentGrid}">
+                            <Label 
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Style="{StaticResource baseLabelStyle}"
+                                Text="Username"/>
+                            <Entry 
+                                Grid.Column="2"
+                                Grid.Row="0"
+                                Style="{StaticResource baseEntryStyle}"
+                                Placeholder="Username"/>
+
+                            <Label 
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Style="{StaticResource baseLabelStyle}"
+                                Text="Password"/>
+                            <Entry 
+                                Grid.Column="2"
+                                Grid.Row="1"
+                                Style="{StaticResource baseEntryStyle}"
+                                Placeholder="Password"
+                                IsPassword="True"/>
+
+                            <Label 
+                                Grid.Column="1"
+                                Grid.Row="2"
+                                Style="{StaticResource baseLabelStyle}"
+                                Text="Password"/>
+                            <Entry 
+                                Grid.Column="2"
+                                Grid.Row="2"
+                                Style="{StaticResource baseEntryStyle}"
+                                Placeholder="Password"
+                                IsPassword="True"/>
+
+                            <Label 
+                                Grid.Column="1"
+                                Grid.Row="3"
+                                Style="{StaticResource baseLabelStyle}"
+                                Text="Password"/>
+                            <Entry 
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                Style="{StaticResource baseEntryStyle}"
+                                Placeholder="Password"
+                                IsPassword="True"/>
+                        </Grid>
+
+                        <Label 
+                            Style="{StaticResource linkLabel}"
+                            Text="Already have an account? Login here.">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </ScrollView>
+                
+
+                <Button
+                    Style="{StaticResource bottomContentButton}"
+                    Text="Register"
+                    Command="{Binding RegisterCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileClient.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,9 @@ namespace MobileClient
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new LoginView();
+
+            
         }
 
         protected override void OnStart()
@@ -23,6 +26,12 @@ namespace MobileClient
 
         protected override void OnResume()
         {
+            MainPage = new LoginView();
+        }
+    
+        public static void ChangeView(Page page)
+        {
+            App.Current.MainPage = page;
         }
     }
 }

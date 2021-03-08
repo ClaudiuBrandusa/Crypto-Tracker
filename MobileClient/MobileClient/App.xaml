@@ -3,6 +3,117 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileClient.App">
     <Application.Resources>
+        
+        <!-- Colors -->
+        
+        <Color x:Key="primaryColor">#20A4DF</Color>
+        <Color x:Key="secondaryColor">#ebebeb</Color>
 
+        <!-- Styles -->
+
+        <Style x:Key="firstPageStyle" TargetType="Grid">
+            <Setter Property="RowSpacing" Value="0"/>
+            <Setter Property="RowDefinitions">
+                <Setter.Value>
+                    <RowDefinitionCollection>
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="30*" />
+                    </RowDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="headerStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Header"/>
+            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="MaxLines" Value="2" />
+        </Style>
+
+        <Style x:Key="middleBoxViewStyle" TargetType="BoxView">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource primaryColor}" />
+        </Style>
+
+        <Style x:Key="bottomContentLayout" TargetType="StackLayout">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource secondaryColor}" />
+        </Style>
+
+        <Style x:Key="bottomContentLabel" TargetType="Label">
+            <Setter Property="Margin" Value="0, 20, 0, 30" />
+            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="bottomContentGrid" TargetType="Grid">
+            <Setter Property="ColumnSpacing" Value="40" />
+            <Setter Property="ColumnDefinitions">
+                <Setter.Value>
+                    <ColumnDefinitionCollection>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </ColumnDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RowDefinitions">
+                <Setter.Value>
+                    <RowDefinitionCollection>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </RowDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="extendedBottomContentGrid" BasedOn="{StaticResource bottomContentGrid}" TargetType="Grid">
+            <Setter Property="RowDefinitions">
+                <Setter.Value>
+                    <RowDefinitionCollection>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </RowDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="baseLabelStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+
+        <Style x:Key="baseEntryStyle" TargetType="Entry">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+
+        <Style x:Key="linkLabel" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
+        </Style>
+
+        <Style x:Key="bottomContentButton" TargetType="Button">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            <Setter Property="Margin" Value="0, 0, 0, 15" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        
     </Application.Resources>
 </Application>
