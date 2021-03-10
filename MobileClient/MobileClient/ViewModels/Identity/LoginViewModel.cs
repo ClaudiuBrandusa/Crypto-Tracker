@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Identity
 {
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         public Command RegisterCommand { get; }
         public Command LoginCommand { get; }
@@ -24,7 +24,7 @@ namespace MobileClient.ViewModels.Identity
 
         void OnLoginCommand()
         {
-            App.ChangeView(new TabbedPageView());
+            App.ChangeView(new NavigationPage(new TabbedPageView()));
         }
     }
 }

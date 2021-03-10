@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MobileClient.ViewModels
 {
-    class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
+        protected INavigation navigation;
+
         bool isBusy = false;
         public bool IsBusy
         {
@@ -20,6 +23,11 @@ namespace MobileClient.ViewModels
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        public BaseViewModel(INavigation navigation = null)
+        {
+            this.navigation = navigation;
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

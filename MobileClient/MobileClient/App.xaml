@@ -11,6 +11,13 @@
 
         <!-- Styles -->
 
+        <!-- Base Styles -->
+
+        <Style x:Key="baseButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource primaryColor}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
         <Style x:Key="firstPageStyle" TargetType="Grid">
             <Setter Property="RowSpacing" Value="0"/>
             <Setter Property="RowDefinitions">
@@ -89,8 +96,6 @@
         </Style>
 
         <Style x:Key="baseLabelStyle" TargetType="Label">
-            <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="HorizontalOptions" Value="End" />
             <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
             <Setter Property="FontSize" Value="Medium" />
         </Style>
@@ -107,12 +112,57 @@
             <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
         </Style>
 
-        <Style x:Key="bottomContentButton" TargetType="Button">
+        <Style x:Key="bottomContentButton" TargetType="Button" BasedOn="{StaticResource baseButton}">
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="VerticalOptions" Value="EndAndExpand" />
             <Setter Property="Margin" Value="0, 0, 0, 15" />
-            <Setter Property="BackgroundColor" Value="{DynamicResource primaryColor}" />
-            <Setter Property="TextColor" Value="White" />
+        </Style>
+        
+        <!-- authorizedPageStyles -->
+
+        <Style x:Key="authorizedPageStyle" TargetType="Grid">
+            <Setter Property="RowSpacing" Value="10" />
+            <Setter Property="ColumnDefinitions">
+                <Setter.Value>
+                    <ColumnDefinitionCollection>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </ColumnDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RowDefinitions">
+                <Setter.Value>
+                    <RowDefinitionCollection>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="5"/>
+                    </RowDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="leftLabelStyle" BasedOn="{StaticResource baseLabelStyle}" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+        </Style>
+
+        <Style x:Key="rightLabelStyle" BasedOn="{StaticResource baseLabelStyle}" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+        </Style>
+
+        <Style x:Key="pageTopTitleLabel" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0, 10, 0, 10"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
         
     </Application.Resources>

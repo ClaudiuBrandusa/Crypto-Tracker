@@ -15,6 +15,7 @@ namespace MobileClient.Views
         public TabbedPageView()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

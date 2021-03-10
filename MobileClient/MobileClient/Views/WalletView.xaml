@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileClient.Views.WalletView"
+             Title="Wallet">
+    <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+        <StackLayout 
+            VerticalOptions="Start" 
+            HorizontalOptions="Fill"
+            BackgroundColor="{DynamicResource primaryColor}">
+            <Label 
+                Style="{StaticResource pageTopTitleLabel}"
+                Text="Wallet"/>
+        </StackLayout>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout
+                VerticalOptions="Start" 
+                HorizontalOptions="Fill">
+                <Entry 
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10, 0, 10, 0"
+                    Placeholder="Search"/>
+            </StackLayout>
+            <CollectionView
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="Center"
+                ItemsSource="{Binding Currencies}"
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedCurrency}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10, 0, 10, 0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal"/>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="35"/>
+                            </Grid.ColumnDefinitions>
+                            <Image 
+                                Grid.Column="0"
+                                VerticalOptions="Center"
+                                Source="{Binding ImageUrl, FallbackValue='default_coin_image', TargetNullValue='default_coin_image'}"/>
+                            <Label
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Text="{Binding Name}"/>
+                            <Label 
+                                Grid.Column="2"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="Center"
+                                Text="{Binding Owned}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

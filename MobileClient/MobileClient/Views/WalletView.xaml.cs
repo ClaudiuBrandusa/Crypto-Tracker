@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 
 namespace MobileClient.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfileView : ContentPage
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class WalletView : ContentPage
     {
-        public ProfileView()
+        public WalletView()
         {
             InitializeComponent();
-            BindingContext = new ProfileViewModel();
+            BindingContext = new WalletViewModel(Navigation);
         }
     }
 }

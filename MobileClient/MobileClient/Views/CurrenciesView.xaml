@@ -4,10 +4,79 @@
              x:Class="MobileClient.Views.CurrenciesView"
              Title="Currencies">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Currencies!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout 
+                VerticalOptions="Start" 
+                HorizontalOptions="Fill"
+                BackgroundColor="{DynamicResource primaryColor}">
+                <Label 
+                    Style="{StaticResource pageTopTitleLabel}"
+                    Text="Currencies"/>
+            </StackLayout>
+            <StackLayout
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White">
+                <StackLayout
+                VerticalOptions="Start" 
+                HorizontalOptions="Fill">
+                    <Entry 
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10, 0, 10, 0"
+                    Placeholder="Search"/>
+                </StackLayout>
+                <CollectionView
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Center"
+                    ItemsSource="{Binding Currencies}"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedCurrency}"
+                    SelectionChanged="CollectionView_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10, 0, 10, 0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal"/>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="White"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="35"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <Image 
+                                    Grid.Column="0"
+                                    VerticalOptions="Center"
+                                    Source="{Binding ImageUrl, FallbackValue='default_coin_image', TargetNullValue='default_coin_image'}"/>
+                                <Label
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Text="{Binding Name}"/>
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    Text="{Binding Price}"/>
+                                <Label
+                                    Grid.Column="3"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    Text="{Binding Price}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

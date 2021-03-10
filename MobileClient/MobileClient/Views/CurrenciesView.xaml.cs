@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileClient.ViewModels.Authorized;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace MobileClient.Views
         public CurrenciesView()
         {
             InitializeComponent();
+            BindingContext = new CurrenciesViewModel(Navigation);
+        }
+
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView collection = sender as CollectionView;
+
+            collection.SelectedItem = null;
         }
     }
 }

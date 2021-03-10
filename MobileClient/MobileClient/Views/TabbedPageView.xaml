@@ -5,10 +5,11 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              xmlns:views="clr-namespace:MobileClient.Views"
              x:Class="MobileClient.Views.TabbedPageView"
-             SelectedTabColor="Black"
-             UnselectedTabColor="Gray"
-             BarBackgroundColor="LightGray">
+             SelectedTabColor="White"
+             UnselectedTabColor="White"
+             BarBackgroundColor="{DynamicResource primaryColor}"
+             BackgroundColor="White">
     <views:CurrenciesView/>
     <views:ProfileView/>
-    <views:PersonalView/>
+    <views:WalletView/>
 </TabbedPage>
