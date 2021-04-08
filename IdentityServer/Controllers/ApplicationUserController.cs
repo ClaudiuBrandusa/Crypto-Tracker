@@ -1,4 +1,5 @@
-﻿using IdentityServer.Models;
+﻿using IdentityServer.Entities;
+using IdentityServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +48,7 @@ namespace IdentityServer.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex;
             }
         }
 

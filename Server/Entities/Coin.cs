@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Server.Models
+namespace Server.Entities
 {
-    public class User
+    public class Coin
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        public float Value { get; set; }
 
         public ICollection<Wallet> Wallets { get; set; }
-        public Credit Credit { get; set; }
-        public CreditHistory CreditHistory { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
     }
 }
