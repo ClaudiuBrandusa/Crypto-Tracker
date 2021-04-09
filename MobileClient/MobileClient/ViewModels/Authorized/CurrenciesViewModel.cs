@@ -1,10 +1,7 @@
 ﻿using MobileClient.Models;
-using MobileClient.Views;
-using System;
-using System.Collections.Generic;
+using MobileClient.Services.Navigation;
+using MobileClient.Views.Authorized;
 using System.Collections.ObjectModel;
-using System.Text;
-using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Authorized
 {
@@ -25,7 +22,7 @@ namespace MobileClient.ViewModels.Authorized
             }
         }
 
-        public CurrenciesViewModel(INavigation navigation = null) : base(navigation)
+        public CurrenciesViewModel(INavigationService navigation) : base(navigation)
         {
             Currencies = new ObservableCollection<CurrencyModel>
             {

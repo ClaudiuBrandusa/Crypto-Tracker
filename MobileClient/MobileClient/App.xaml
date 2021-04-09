@@ -52,15 +52,8 @@
             <Setter Property="BackgroundColor" Value="{DynamicResource secondaryColor}" />
         </Style>
 
-        <Style x:Key="bottomContentLabel" TargetType="Label">
-            <Setter Property="Margin" Value="0, 20, 0, 30" />
-            <Setter Property="VerticalOptions" Value="End" />
-            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
-            <Setter Property="FontSize" Value="Large" />
-            <Setter Property="HorizontalTextAlignment" Value="Center" />
-        </Style>
-
         <Style x:Key="bottomContentGrid" TargetType="Grid">
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             <Setter Property="ColumnSpacing" Value="40" />
             <Setter Property="ColumnDefinitions">
                 <Setter.Value>

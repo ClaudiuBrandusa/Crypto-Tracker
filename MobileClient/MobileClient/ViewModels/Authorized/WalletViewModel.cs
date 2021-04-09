@@ -1,5 +1,7 @@
 ﻿using MobileClient.Models;
+using MobileClient.Services.Navigation;
 using MobileClient.Views;
+using MobileClient.Views.Authorized;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +27,7 @@ namespace MobileClient.ViewModels.Authorized
             }
         }
 
-        public WalletViewModel(INavigation navigation = null) : base(navigation)
+        public WalletViewModel(INavigationService navigation) : base(navigation)
         {
             Currencies = new ObservableCollection<CurrencyModel>
             {

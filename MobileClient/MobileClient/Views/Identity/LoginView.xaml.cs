@@ -1,4 +1,6 @@
-﻿using MobileClient.ViewModels.Identity;
+﻿using MobileClient.Services.Navigation;
+using MobileClient.Services.ViewModelLocator;
+using MobileClient.ViewModels.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileClient.Views
+namespace MobileClient.Views.Identity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginView : ContentPage
@@ -16,7 +18,7 @@ namespace MobileClient.Views
         public LoginView()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel();
+            BindingContext = new LoginViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }

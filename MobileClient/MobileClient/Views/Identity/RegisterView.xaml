@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileClient.Views.RegisterView">
+             x:Class="MobileClient.Views.Identity.RegisterView">
     <ContentPage.Content>
         <Grid Style="{StaticResource firstPageStyle}">
 
@@ -18,9 +18,6 @@
             <StackLayout
                 Grid.Row="2"
                 Style="{StaticResource bottomContentLayout}">
-                <Label 
-                    Style="{StaticResource bottomContentLabel}"
-                    Text="Register"/>
                 <ScrollView>
                     <StackLayout
                         HorizontalOptions="FillAndExpand"

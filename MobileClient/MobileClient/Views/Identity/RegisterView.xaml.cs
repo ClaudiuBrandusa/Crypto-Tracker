@@ -1,4 +1,5 @@
-﻿using MobileClient.ViewModels.Identity;
+﻿using MobileClient.Services.Navigation;
+using MobileClient.ViewModels.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileClient.Views
+namespace MobileClient.Views.Identity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterView : ContentPage
@@ -16,7 +17,7 @@ namespace MobileClient.Views
         public RegisterView()
         {
             InitializeComponent();
-            BindingContext = new RegisterViewModel();
+            BindingContext = new RegisterViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }
