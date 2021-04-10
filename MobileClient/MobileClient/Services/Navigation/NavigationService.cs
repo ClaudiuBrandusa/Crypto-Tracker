@@ -1,9 +1,5 @@
-﻿using MobileClient.Services;
-using MobileClient.ViewModels;
-using System;
+﻿using MobileClient.ViewModels;
 using Xamarin.Forms;
-using System.Collections.Generic;
-using System.Text;
 using MobileClient.Services.Navigation;
 using System.Threading.Tasks;
 using MobileClient.Services.ViewLocator;
@@ -35,7 +31,7 @@ namespace MobileClient.Services.Navigation
 
         public void ClearStack() // Only the current page remains
         {
-            for(int i = 1; i < _navigation.NavigationStack.Count; i++)
+            for(int i = 0; i < _navigation.NavigationStack.Count - 1; i++)
             {
                 _navigation.RemovePage(_navigation.NavigationStack[i]);
             }
@@ -51,11 +47,6 @@ namespace MobileClient.Services.Navigation
             {
                 ClearStack();
             }
-        }
-
-        public async void PushAsync(Page page)
-        {
-            await _navigation.PushAsync(page);
         }
     }
 }

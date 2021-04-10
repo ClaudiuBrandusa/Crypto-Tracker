@@ -10,10 +10,9 @@ namespace MobileClient.Services.Navigation
 {
     public interface INavigationService
     {
-        Task NavigateTo(BaseViewModel viewModel, bool clearStack);
+        Task NavigateTo(BaseViewModel viewModel, bool clearStack=false);
         bool CanGoBack();
         Task Back();
         void ClearStack();
-        void PushAsync(Page page);
     }
 }

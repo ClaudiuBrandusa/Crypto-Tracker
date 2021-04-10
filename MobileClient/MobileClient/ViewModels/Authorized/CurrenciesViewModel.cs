@@ -18,7 +18,7 @@ namespace MobileClient.ViewModels.Authorized
             {
                 _selectedCurrency = value;
                 if (value == null) return;
-                navigation.PushAsync(new CurrencyDetailView(value));
+                navigation.NavigateTo(new CurrencyDetailViewModel(navigation, value));
             }
         }
 

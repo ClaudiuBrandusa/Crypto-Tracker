@@ -41,12 +41,7 @@ namespace MobileClient
 
         protected override void OnResume()
         {
-            MainPage = new LoginView();
-        }
-    
-        public static void ChangeView(Page page)
-        {
-            App.Current.MainPage = page;
+            navigationService.NavigateTo(new LoginViewModel(navigationService), true);
         }
     }
 }

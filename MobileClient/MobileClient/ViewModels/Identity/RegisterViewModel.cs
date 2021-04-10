@@ -1,6 +1,5 @@
 ﻿using MobileClient.Services.Navigation;
-using MobileClient.Views.Authorized;
-using MobileClient.Views.Identity;
+using MobileClient.ViewModels.Authorized;
 using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Identity
@@ -18,12 +17,12 @@ namespace MobileClient.ViewModels.Identity
 
         void OnLoginCommand()
         {
-            App.ChangeView(new LoginView());
+            navigation.NavigateTo(new LoginViewModel(navigation), true);
         }
 
         void OnRegisterCommand()
         {
-            App.ChangeView(new NavigationPage(new TabbedPageView()));
+            navigation.NavigateTo(new TabbedPageViewModel(navigation), true);
         }
     }
 }

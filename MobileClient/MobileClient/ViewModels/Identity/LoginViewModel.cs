@@ -1,6 +1,5 @@
 ﻿using MobileClient.Services.Navigation;
-using MobileClient.Views.Authorized;
-using MobileClient.Views.Identity;
+using MobileClient.ViewModels.Authorized;
 using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Identity
@@ -32,27 +31,20 @@ namespace MobileClient.ViewModels.Identity
             }
         }
 
-        /*public bool ButtonVisibility
-        {
-            get { }
-        }*/
-
         public LoginViewModel(INavigationService navigationService) : base(navigationService)
         {
             RegisterCommand = new Command(OnRegisterCommand);
             LoginCommand = new Command(OnLoginCommand);
         }
 
-        void OnRegisterCommand()
+        async void OnRegisterCommand()
         {
-            App.ChangeView(new RegisterView());
-
+            await navigation.NavigateTo(new RegisterViewModel(navigation), true);
         }
 
-        void OnLoginCommand()
+        async void OnLoginCommand()
         {
-            navigation.NavigateTo(DependencyService.Get<TabbedPageViewModel>(), true);
-            App.ChangeView(new NavigationPage(new TabbedPageView()));
+            await navigation.NavigateTo(new TabbedPageViewModel(navigation), true);
         }
 
         // Validation
@@ -71,12 +63,5 @@ namespace MobileClient.ViewModels.Identity
         {
             return true;
         }
-
-        /*public override Task Init(LoginModel parameter)
-        {
-            Username = "";
-            Password = "";
-            return Task.CompletedTask;
-        }*/
     }
 }

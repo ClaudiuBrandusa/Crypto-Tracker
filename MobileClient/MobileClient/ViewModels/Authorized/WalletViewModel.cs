@@ -1,12 +1,6 @@
 ﻿using MobileClient.Models;
 using MobileClient.Services.Navigation;
-using MobileClient.Views;
-using MobileClient.Views.Authorized;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Authorized
 {
@@ -23,7 +17,7 @@ namespace MobileClient.ViewModels.Authorized
             set
             {
                 _selectedCurrency = value;
-                navigation.PushAsync(new CurrencyDetailView(value));
+                navigation.NavigateTo(new CurrencyDetailViewModel(navigation, value));
             }
         }
 
