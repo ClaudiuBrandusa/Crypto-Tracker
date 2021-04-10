@@ -13,6 +13,5 @@ namespace MobileClient.Services.Navigation
         Task NavigateTo(BaseViewModel viewModel, bool clearStack=false);
         bool CanGoBack();
         Task Back();
-        void ClearStack();
     }
 }

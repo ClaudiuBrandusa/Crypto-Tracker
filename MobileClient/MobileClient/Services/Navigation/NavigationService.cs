@@ -29,24 +29,21 @@ namespace MobileClient.Services.Navigation
             return _navigation.NavigationStack.Count > 0;
         }
 
-        public void ClearStack() // Only the current page remains
+        private void ClearStack() // Only the current page remains
         {
-            for(int i = 0; i < _navigation.NavigationStack.Count - 1; i++)
-            {
-                _navigation.RemovePage(_navigation.NavigationStack[i]);
-            }
+            _root.ResetMainPage();
         }
 
         public async Task NavigateTo(BaseViewModel viewModel, bool newStack)
         {
             var page = _viewLocator.CreateAndBindPageFor(viewModel);
-            
-            await _navigation.PushAsync(page);
-            
-            if(newStack)
+
+            if (newStack)
             {
                 ClearStack();
             }
+            
+            await _navigation.PushAsync(page);
         }
     }
 }

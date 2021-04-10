@@ -1,64 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileClient.Views.Identity.LoginView">
-    <ContentPage.Content>
-        <Grid Style="{StaticResource firstPageStyle}">
+             x:Class="MobileClient.Views.Identity.LoginView"
+             Title="Crypto Tracker">
+    <StackLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Style="{StaticResource basicContentLayout}">
+        <Grid
+            Style="{StaticResource identityContentGrid}">
+            <Label 
+                Grid.Column="1"
+                Grid.Row="0"
+                Style="{StaticResource leftLabelStyle}"
+                Text="Username"/>
+            <Entry 
+                Grid.Column="2"
+                Grid.Row="0"
+                Style="{StaticResource baseEntryStyle}"
+                Placeholder="Username"
+                Text="{Binding Username}"/>
 
-            <StackLayout Grid.Row="0">
-                <Label 
-                    Text="Crypto Tracker"
-                    Style="{StaticResource headerStyle}"/>
-            </StackLayout>
-            <BoxView
+            <Label 
+                Grid.Column="1"
                 Grid.Row="1"
-                Style="{StaticResource middleBoxViewStyle}">
-                
-            </BoxView>
-            <StackLayout
-                Grid.Row="2"
-                Style="{StaticResource bottomContentLayout}">
-                <Grid
-                    Style="{StaticResource bottomContentGrid}">
-                    <Label 
-                        Grid.Column="1"
-                        Grid.Row="0"
-                        Style="{StaticResource leftLabelStyle}"
-                        Text="Username"/>
-                    <Entry 
-                        Grid.Column="2"
-                        Grid.Row="0"
-                        Style="{StaticResource baseEntryStyle}"
-                        Placeholder="Username"
-                        Text="{Binding Username}"/>
-
-                    <Label 
-                        Grid.Column="1"
-                        Grid.Row="1"
-                        Style="{StaticResource leftLabelStyle}"
-                        Text="Password"/>
-                    <Entry 
-                        Grid.Column="2"
-                        Grid.Row="1"
-                        Style="{StaticResource baseEntryStyle}"
-                        Placeholder="Password"
-                        Text="{Binding Password}"
-                        IsPassword="True"/>
-                </Grid>
-
-                <Label 
-                    Style="{StaticResource linkLabel}"
-                    Text="Have no account? Register here.">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-
-                <Button
-                    Style="{StaticResource bottomContentButton}"
-                    Text="Login"
-                    Command="{Binding LoginCommand}"/>
-            </StackLayout>
+                Style="{StaticResource leftLabelStyle}"
+                Text="Password"/>
+            <Entry 
+                Grid.Column="2"
+                Grid.Row="1"
+                Style="{StaticResource baseEntryStyle}"
+                Placeholder="Password"
+                Text="{Binding Password}"
+                IsPassword="True"/>
         </Grid>
-    </ContentPage.Content>
+
+        <Label 
+            Style="{StaticResource linkLabel}"
+            Text="Have no account? Register here.">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Button
+            Style="{StaticResource bottomContentButton}"
+            Text="Login"
+            Command="{Binding LoginCommand}"/>
+    </StackLayout>
 </ContentPage>

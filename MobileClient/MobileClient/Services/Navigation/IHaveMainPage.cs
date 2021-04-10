@@ -8,5 +8,7 @@ namespace MobileClient.Services.Navigation
     public interface IHaveMainPage
     {
         Page MainPage { get; set; }
+
+        void ResetMainPage();
     }
 }

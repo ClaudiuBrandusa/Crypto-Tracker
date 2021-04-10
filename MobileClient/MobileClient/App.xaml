@@ -31,28 +31,13 @@
             </Setter>
         </Style>
 
-        <Style x:Key="headerStyle" TargetType="Label">
-            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="Header"/>
-            <Setter Property="TextColor" Value="{DynamicResource primaryColor}" />
-            <Setter Property="BackgroundColor" Value="White" />
-            <Setter Property="MaxLines" Value="2" />
-        </Style>
-
-        <Style x:Key="middleBoxViewStyle" TargetType="BoxView">
-            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-            <Setter Property="BackgroundColor" Value="{DynamicResource primaryColor}" />
-        </Style>
-
-        <Style x:Key="bottomContentLayout" TargetType="StackLayout">
+        <Style x:Key="basicContentLayout" TargetType="StackLayout">
             <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             <Setter Property="VerticalOptions" Value="FillAndExpand" />
             <Setter Property="BackgroundColor" Value="{DynamicResource secondaryColor}" />
         </Style>
 
-        <Style x:Key="bottomContentGrid" TargetType="Grid">
+        <Style x:Key="identityContentGrid" TargetType="Grid">
             <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             <Setter Property="ColumnSpacing" Value="40" />
             <Setter Property="ColumnDefinitions">
@@ -75,7 +60,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="extendedBottomContentGrid" BasedOn="{StaticResource bottomContentGrid}" TargetType="Grid">
+        <Style x:Key="extendedIdentityContentGrid" BasedOn="{StaticResource identityContentGrid}" TargetType="Grid">
             <Setter Property="RowDefinitions">
                 <Setter.Value>
                     <RowDefinitionCollection>

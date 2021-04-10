@@ -20,11 +20,10 @@ namespace MobileClient
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginView());
             MainPage = new NavigationPage();
 
             CurrentUser = new User();
-            
+
             navigationService = new NavigationService(this, new ViewLocator());
             DependencyService.RegisterSingleton(navigationService);
 
@@ -42,6 +41,11 @@ namespace MobileClient
         protected override void OnResume()
         {
             navigationService.NavigateTo(new LoginViewModel(navigationService), true);
+        }
+
+        public void ResetMainPage()
+        {
+            MainPage = new NavigationPage();
         }
     }
 }
