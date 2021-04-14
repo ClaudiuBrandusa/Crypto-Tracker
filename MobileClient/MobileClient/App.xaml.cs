@@ -2,11 +2,7 @@
 using MobileClient.Services.Navigation;
 using MobileClient.Services.ViewLocator;
 using MobileClient.ViewModels.Identity;
-using MobileClient.Views;
-using MobileClient.Views.Identity;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MobileClient
 {

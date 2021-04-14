@@ -29,7 +29,7 @@ namespace MobileClient.Services.Navigation
             return _navigation.NavigationStack.Count > 0;
         }
 
-        private void ClearStack() // Only the current page remains
+        private void ClearStack()
         {
             _root.ResetMainPage();
         }

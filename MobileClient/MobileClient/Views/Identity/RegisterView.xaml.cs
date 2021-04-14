@@ -17,7 +17,6 @@ namespace MobileClient.Views.Identity
         public RegisterView()
         {
             InitializeComponent();
-            BindingContext = new RegisterViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }

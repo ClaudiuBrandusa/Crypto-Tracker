@@ -25,7 +25,6 @@ namespace MobileClient.Views.Authorized
         {
             InitializeComponent();
             ((NavigationPage)App.Current.MainPage).BarBackgroundColor = (Color) App.Current.Resources["primaryColor"];
-            BindingContext = new CurrencyDetailViewModel(DependencyService.Get<INavigationService>(), model);
         }
     }
 }

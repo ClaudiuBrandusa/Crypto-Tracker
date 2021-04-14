@@ -18,7 +18,6 @@ namespace MobileClient.Views.Identity
         public LoginView()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }

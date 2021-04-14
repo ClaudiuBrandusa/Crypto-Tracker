@@ -17,7 +17,6 @@ namespace MobileClient.Views.Authorized
         public SettingsView()
         {
             InitializeComponent();
-            BindingContext = new SettingsViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }

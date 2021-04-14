@@ -13,7 +13,6 @@ namespace MobileClient.Views.Authorized
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new TabbedPageViewModel(DependencyService.Get<INavigationService>());
         }
     }
 }

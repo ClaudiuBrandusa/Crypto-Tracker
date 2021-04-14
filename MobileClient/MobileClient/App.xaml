@@ -40,37 +40,6 @@
         <Style x:Key="identityContentGrid" TargetType="Grid">
             <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             <Setter Property="ColumnSpacing" Value="40" />
-            <Setter Property="ColumnDefinitions">
-                <Setter.Value>
-                    <ColumnDefinitionCollection>
-                        <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="15"/>
-                    </ColumnDefinitionCollection>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="RowDefinitions">
-                <Setter.Value>
-                    <RowDefinitionCollection>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </RowDefinitionCollection>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="extendedIdentityContentGrid" BasedOn="{StaticResource identityContentGrid}" TargetType="Grid">
-            <Setter Property="RowDefinitions">
-                <Setter.Value>
-                    <RowDefinitionCollection>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </RowDefinitionCollection>
-                </Setter.Value>
-            </Setter>
         </Style>
 
         <Style x:Key="baseLabelStyle" TargetType="Label">
@@ -141,6 +110,12 @@
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="ErrorStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="TextColor" Value="Red" />
         </Style>
         
     </Application.Resources>

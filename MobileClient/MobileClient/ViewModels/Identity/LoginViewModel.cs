@@ -1,40 +1,50 @@
-﻿using MobileClient.Services.Navigation;
+﻿using MobileClient.Models;
+using MobileClient.Services.Navigation;
 using MobileClient.ViewModels.Authorized;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Identity
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseValidationViewModel
     {
+        public new Dictionary<string, ObservableCollection<string>> Errors
+        {
+            get => base.Errors;
+            set => base.Errors = value;
+        }
 
         public Command RegisterCommand { get; }
         public Command LoginCommand { get; }
 
-        string username;
+        LoginModel model;
+
         public string Username { 
-            get { return username; }
+            get { return model.Username; }
             set
             {
-                username = value;
+                model.Username = value;
                 OnPropertyChanged();
             }
         }
 
-        string password;
         public string Password
         {
-            get { return password; }
+            get { return model.Password; }
             set
             {
-                password = value;
+                model.Password = value;
                 OnPropertyChanged();
             }
         }
 
         public LoginViewModel(INavigationService navigationService) : base(navigationService)
         {
+            model = new LoginModel();
             RegisterCommand = new Command(OnRegisterCommand);
             LoginCommand = new Command(OnLoginCommand);
+            InitValidators(model);
         }
 
         async void OnRegisterCommand()
@@ -44,24 +54,12 @@ namespace MobileClient.ViewModels.Identity
 
         async void OnLoginCommand()
         {
+            if(!Validate())
+            {
+                return;
+            }
+
             await navigation.NavigateTo(new TabbedPageViewModel(navigation), true);
-        }
-
-        // Validation
-
-        bool Validate()
-        {
-            return ValidateUsername() && ValidatePassword();
-        }
-
-        bool ValidateUsername()
-        {
-            return true;
-        }
-
-        bool ValidatePassword()
-        {
-            return true;
         }
     }
 }
