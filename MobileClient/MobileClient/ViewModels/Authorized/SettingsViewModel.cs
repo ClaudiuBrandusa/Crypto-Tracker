@@ -5,12 +5,11 @@ using System.Text;
 
 namespace MobileClient.ViewModels.Authorized
 {
-    public class ProfileViewModel : BaseViewModel
+    public class SettingsViewModel : BaseViewModel
     {
-
-        public ProfileViewModel(INavigationService navigation) : base(navigation)
+        public SettingsViewModel(INavigationService navigation) : base(navigation)
         {
-            
+
         }
     }
 }

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using MobileClient.Services.Navigation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xamarin.Forms;
 
 namespace MobileClient.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        protected INavigation navigation;
+
+        protected INavigationService navigation;
 
         bool isBusy = false;
         public bool IsBusy
@@ -25,7 +26,7 @@ namespace MobileClient.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        public BaseViewModel(INavigation navigation = null)
+        public BaseViewModel(INavigationService navigation)
         {
             this.navigation = navigation;
         }

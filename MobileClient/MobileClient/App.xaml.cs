@@ -1,19 +1,29 @@
-﻿using MobileClient.Views;
-using System;
+﻿using MobileClient.Models;
+using MobileClient.Services.Navigation;
+using MobileClient.Services.ViewLocator;
+using MobileClient.ViewModels.Identity;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MobileClient
 {
-    public partial class App : Application
+    public partial class App : Application, IHaveMainPage
     {
+        public User CurrentUser { get; set; }
+
+        INavigationService navigationService;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new LoginView();
+            MainPage = new NavigationPage();
 
-            
+            CurrentUser = new User();
+
+            navigationService = new NavigationService(this, new ViewLocator());
+            DependencyService.RegisterSingleton(navigationService);
+
+            navigationService.NavigateTo(new LoginViewModel(navigationService), false);
         }
 
         protected override void OnStart()
@@ -26,12 +36,12 @@ namespace MobileClient
 
         protected override void OnResume()
         {
-            MainPage = new LoginView();
+            navigationService.NavigateTo(new LoginViewModel(navigationService), true);
         }
-    
-        public static void ChangeView(Page page)
+
+        public void ResetMainPage()
         {
-            App.Current.MainPage = page;
+            MainPage = new NavigationPage();
         }
     }
 }

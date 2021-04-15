@@ -1,30 +1,65 @@
-﻿using MobileClient.Views;
-using System;
+﻿using MobileClient.Models;
+using MobileClient.Services.Navigation;
+using MobileClient.ViewModels.Authorized;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Identity
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseValidationViewModel
     {
+        public new Dictionary<string, ObservableCollection<string>> Errors
+        {
+            get => base.Errors;
+            set => base.Errors = value;
+        }
+
         public Command RegisterCommand { get; }
         public Command LoginCommand { get; }
 
-        public LoginViewModel()
+        LoginModel model;
+
+        public string Username { 
+            get { return model.Username; }
+            set
+            {
+                model.Username = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Password
         {
+            get { return model.Password; }
+            set
+            {
+                model.Password = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public LoginViewModel(INavigationService navigationService) : base(navigationService)
+        {
+            model = new LoginModel();
             RegisterCommand = new Command(OnRegisterCommand);
             LoginCommand = new Command(OnLoginCommand);
+            InitValidators(model);
         }
 
-        void OnRegisterCommand()
+        async void OnRegisterCommand()
         {
-            App.ChangeView(new RegisterView());
+            await navigation.NavigateTo(new RegisterViewModel(navigation), true);
         }
 
-        void OnLoginCommand()
+        async void OnLoginCommand()
         {
-            App.ChangeView(new NavigationPage(new TabbedPageView()));
+            if(!Validate())
+            {
+                return;
+            }
+
+            await navigation.NavigateTo(new TabbedPageViewModel(navigation), true);
         }
     }
 }

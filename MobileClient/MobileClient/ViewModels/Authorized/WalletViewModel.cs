@@ -1,10 +1,6 @@
 ﻿using MobileClient.Models;
-using MobileClient.Views;
-using System;
-using System.Collections.Generic;
+using MobileClient.Services.Navigation;
 using System.Collections.ObjectModel;
-using System.Text;
-using Xamarin.Forms;
 
 namespace MobileClient.ViewModels.Authorized
 {
@@ -21,11 +17,11 @@ namespace MobileClient.ViewModels.Authorized
             set
             {
                 _selectedCurrency = value;
-                navigation.PushAsync(new CurrencyDetailView(value));
+                navigation.NavigateTo(new CurrencyDetailViewModel(navigation, value));
             }
         }
 
-        public WalletViewModel(INavigation navigation = null) : base(navigation)
+        public WalletViewModel(INavigationService navigation) : base(navigation)
         {
             Currencies = new ObservableCollection<CurrencyModel>
             {
