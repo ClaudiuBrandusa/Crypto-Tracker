@@ -1,5 +1,10 @@
-﻿using IdentityServer.Entities;
-using IdentityServer.Models;
+﻿using Library;
+using IdentityServer.Services;
+using Library.IdentityServer.Entities;
+using Library.IdentityServer.Models;
+using Library.Server.Entities;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +27,15 @@ namespace IdentityServer.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationSettings _appSettings;
+        private readonly IUserRepository _userRepository;
 
-        public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
+        public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+                                         IOptions<ApplicationSettings> appSettings, IUserRepository userRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _appSettings = appSettings.Value;
+            _userRepository = userRepository;
         }
 
         [HttpPost]
@@ -78,6 +86,29 @@ namespace IdentityServer.Controllers
             {
                 return BadRequest(new { message = "Username or password is incorrect." });
             }
+        }
+
+        [Authorize]
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok("Logout successfull");
+        }
+
+        [HttpGet("GetUsers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            ICollection<Library.Server.Models.User> Users = new List<Library.Server.Models.User>();
+
+            var allUsers = _userRepository.GetUsers();
+
+            if (allUsers == null)
+                return Ok("Users not found.");
+
+            Users = allUsers.Select(x => new Library.Server.Models.User { Id = x.Id, Name = x.UserName }).ToList();
+
+            return Ok(Users);
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿using IdentityServer.Entities;
+﻿using Library.IdentityServer.Entities;
+using Library.Server.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace IdentityServer.Data
+namespace Library.IdentityServer.Data
 {
     public class AuthenticationContext : IdentityDbContext
     {
@@ -14,7 +14,7 @@ namespace IdentityServer.Data
         {
 
         }
-
+        
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

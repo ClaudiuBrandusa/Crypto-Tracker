@@ -1,6 +1,8 @@
-using IdentityServer.Data;
-using IdentityServer.Entities;
-using IdentityServer.Models;
+using IdentityServer.Services;
+using Library.IdentityServer.Data;
+using Library.IdentityServer.Entities;
+using Library.IdentityServer.Models;
+using Library.Server.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +45,8 @@ namespace IdentityServer
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "IdentityServer", Version = "v1" });
             });
 
+            
+
             services.AddDbContext<AuthenticationContext>
             (
                 options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"))
@@ -82,6 +86,8 @@ namespace IdentityServer
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
