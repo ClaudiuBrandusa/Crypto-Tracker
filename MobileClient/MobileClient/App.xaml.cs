@@ -1,4 +1,6 @@
 ﻿using MobileClient.Models;
+using MobileClient.Services.Identity;
+using MobileClient.Services.Identity.Token;
 using MobileClient.Services.Navigation;
 using MobileClient.Services.ViewLocator;
 using MobileClient.ViewModels.Identity;
@@ -12,6 +14,11 @@ namespace MobileClient
 
         INavigationService navigationService;
 
+        ITokenProvider tokenProvider;
+
+        IRegisterService registerService;
+        ILoginService loginService;
+
         public App()
         {
             InitializeComponent();
@@ -20,8 +27,7 @@ namespace MobileClient
 
             CurrentUser = new User();
 
-            navigationService = new NavigationService(this, new ViewLocator());
-            DependencyService.RegisterSingleton(navigationService);
+            InitDependencies();
 
             navigationService.NavigateTo(new LoginViewModel(navigationService), false);
         }
@@ -37,6 +43,22 @@ namespace MobileClient
         protected override void OnResume()
         {
             navigationService.NavigateTo(new LoginViewModel(navigationService), true);
+        }
+
+        private void InitDependencies()
+        {
+            navigationService = new NavigationService(this, new ViewLocator());
+            DependencyService.RegisterSingleton(navigationService);
+
+            tokenProvider = new TokenProvider();
+            DependencyService.Register<ITokenProvider, TokenProvider>();
+            DependencyService.RegisterSingleton(tokenProvider);
+
+            registerService = new RegisterService(tokenProvider);
+            DependencyService.RegisterSingleton(registerService);
+
+            loginService = new LoginService(tokenProvider);
+            DependencyService.RegisterSingleton(loginService);
         }
 
         public void ResetMainPage()

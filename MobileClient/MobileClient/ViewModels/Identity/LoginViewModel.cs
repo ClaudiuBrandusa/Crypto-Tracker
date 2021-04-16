@@ -1,4 +1,5 @@
 ﻿using MobileClient.Models;
+using MobileClient.Services.Identity;
 using MobileClient.Services.Navigation;
 using MobileClient.ViewModels.Authorized;
 using System.Collections.Generic;
@@ -56,6 +57,13 @@ namespace MobileClient.ViewModels.Identity
         {
             if(!Validate())
             {
+                return;
+            }
+
+            bool status = await DependencyService.Get<ILoginService>().Login(model);
+            if(!status)
+            {
+                // alert the client that the login process failed
                 return;
             }
 

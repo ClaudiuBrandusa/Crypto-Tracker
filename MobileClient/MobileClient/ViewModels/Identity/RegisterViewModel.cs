@@ -1,4 +1,5 @@
 ﻿using MobileClient.Models;
+using MobileClient.Services.Identity;
 using MobileClient.Services.Navigation;
 using MobileClient.ViewModels.Authorized;
 using System.Collections.Generic;
@@ -77,6 +78,16 @@ namespace MobileClient.ViewModels.Identity
         {
             if(!Validate())
             {
+                return;
+            }
+
+            bool status = false;
+
+            status = await DependencyService.Get<IRegisterService>().Register(model);
+
+            if(!status)
+            {
+                // alert the client that the registration process failed
                 return;
             }
 

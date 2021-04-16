@@ -12,5 +12,6 @@ namespace MobileClient
 
         public const string LoginEndpoint = ServerHost + "/api/applicationUser/login";
         public const string RegisterEndpoint = ServerHost + "/api/applicationUser/register";
+        public const string LogoutEndpoint = ServerHost + "/api/applicationUser/logout";
     }
 }
