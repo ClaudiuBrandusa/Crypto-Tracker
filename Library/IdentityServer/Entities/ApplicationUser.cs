@@ -2,14 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace IdentityServer.Entities
+namespace Library.IdentityServer.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        [Column(TypeName ="nvarchar(150)")]
+        [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }
     }
 }

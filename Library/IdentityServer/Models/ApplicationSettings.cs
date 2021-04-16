@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace IdentityServer.Models
+namespace Library.IdentityServer.Models
 {
     public class ApplicationSettings
     {

@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Server.Entities;
+﻿using Library.Server.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Server.Data
+namespace Library.Server.Data
 {
     public class ServerContext : DbContext
     {

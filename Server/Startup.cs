@@ -1,3 +1,5 @@
+using Library.IdentityServer.Data;
+using Library.Server.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Server.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,11 @@ namespace Server
             (
                 options => options.UseSqlServer(Configuration.GetConnectionString("CryptoTrackerConnection"))
             );
+
+            services.AddDbContext<AuthenticationContext>
+           (
+               options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"))
+           );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
