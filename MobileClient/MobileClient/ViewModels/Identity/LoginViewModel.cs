@@ -64,6 +64,8 @@ namespace MobileClient.ViewModels.Identity
             if(!status)
             {
                 // alert the client that the login process failed
+                ShowCustomError("Login failed");
+                Password = "";
                 return;
             }
 

@@ -88,6 +88,9 @@ namespace MobileClient.ViewModels.Identity
             if(!status)
             {
                 // alert the client that the registration process failed
+                ShowCustomError("Register failed");
+                Password = "";
+                ConfirmPassword = "";
                 return;
             }
 

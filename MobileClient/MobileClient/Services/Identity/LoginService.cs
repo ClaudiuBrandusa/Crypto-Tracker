@@ -41,7 +41,9 @@ namespace MobileClient.Services.Identity
 
         public async Task<bool> Logout()
         {
-            return true;
+            var result = await HttpUtil.PostAuthorizedAsync(null, Constants.LogoutEndpoint, tokenProvider.Token);
+
+            return result;
         }
     }
 }

@@ -105,6 +105,11 @@ namespace MobileClient.ViewModels
             Errors = aux;
         }
 
+        protected void ShowCustomError(string text)
+        {
+            ShowError("Custom", text);
+        }
+
         private void ShowError(string propertyName, string errorMessage)
         {
             if(AddError(propertyName, errorMessage))

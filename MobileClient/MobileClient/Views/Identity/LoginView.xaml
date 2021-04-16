@@ -72,11 +72,18 @@
 
         <Label 
             Style="{StaticResource linkLabel}"
+            VerticalOptions="EndAndExpand"
             Text="Have no account? Register here.">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
             </Label.GestureRecognizers>
         </Label>
+
+        <Label 
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center"
+            TextColor="Red"
+            Text="{Binding Errors.[Custom], Converter={StaticResource listToStringConverter}, TargetNullValue=''}"/>
 
         <Button
             Style="{StaticResource bottomContentButton}"

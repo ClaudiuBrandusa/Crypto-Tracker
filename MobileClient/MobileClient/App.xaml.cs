@@ -42,7 +42,6 @@ namespace MobileClient
 
         protected override void OnResume()
         {
-            navigationService.NavigateTo(new LoginViewModel(navigationService), true);
         }
 
         private void InitDependencies()
