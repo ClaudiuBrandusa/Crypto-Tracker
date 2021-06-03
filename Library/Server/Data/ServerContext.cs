@@ -33,8 +33,8 @@ namespace Library.Server.Data
                 .WithOne(y => y.User);
 
             //User - Credit (one to one)
-            modelBuilder.Entity<Credit>()
-                .HasKey(p => p.UserId);
+            //modelBuilder.Entity<Credit>()
+                //.HasKey(p => p.UserId);
 
             modelBuilder.Entity<User>()
                 .HasOne(x => x.Credit)
@@ -42,8 +42,8 @@ namespace Library.Server.Data
                 .HasForeignKey<Credit>(y => y.UserId);
 
             //User - CreditHistory (one to one)
-            modelBuilder.Entity<CreditHistory>()
-                .HasKey(p => p.UserId);
+            //modelBuilder.Entity<CreditHistory>()
+                //.HasKey(p => p.UserId);
 
             modelBuilder.Entity<User>()
                 .HasOne(x => x.CreditHistory)
@@ -51,8 +51,8 @@ namespace Library.Server.Data
                 .HasForeignKey<CreditHistory>(y => y.UserId);
 
             //User - Transaction (one to many)
-            modelBuilder.Entity<Transaction>()
-                .HasKey(p => p.Id);
+            //modelBuilder.Entity<Transaction>()
+                //.HasKey(p => p.Id);
 
             modelBuilder.Entity<User>()
                 .HasMany(x => x.Transactions)
@@ -64,8 +64,8 @@ namespace Library.Server.Data
                 .WithOne(y => y.Wallet);
 
             //Coin - Wallet (one to many)
-            modelBuilder.Entity<Coin>()
-                .HasKey(p => p.Id);
+            //modelBuilder.Entity<Coin>()
+                //.HasKey(p => p.Id);
 
             modelBuilder.Entity<Coin>()
                 .HasMany(x => x.Wallets)
