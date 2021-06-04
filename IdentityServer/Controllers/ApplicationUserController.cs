@@ -52,11 +52,11 @@ namespace IdentityServer.Controllers
             try
             {
                 var result = await _userManager.CreateAsync(applicationUser, model.Password);
-                return Ok(result);
+                return await Login(new LoginModel { UserName = model.UserName, Password = model.Password });
             }
             catch (Exception ex)
             {
-                return ex;
+                return BadRequest(new { message = "Unable to register account." });
             }
         }
 
