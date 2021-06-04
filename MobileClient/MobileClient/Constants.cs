@@ -6,7 +6,7 @@ namespace MobileClient
 {
     public class Constants
     {
-        public const string ServerHostname = "10.0.2.2:5004";
+        public const string ServerHostname = "10.0.2.2:62990";
         public const string ServerProtocol = "http";
         public const string ServerHost = ServerProtocol + "://" + ServerHostname;
 

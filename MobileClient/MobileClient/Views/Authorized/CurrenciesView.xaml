@@ -3,17 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileClient.Views.Authorized.CurrenciesView"
              Title="Currencies">
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf51e;" Color="White" />
+    </ContentPage.IconImageSource>
     <ContentPage.Content>
         <StackLayout
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
             <StackLayout 
                 VerticalOptions="Start" 
-                HorizontalOptions="Fill"
+                HorizontalOptions="FillAndExpand"
                 BackgroundColor="{DynamicResource primaryColor}">
-                <Label 
-                    Style="{StaticResource pageTopTitleLabel}"
-                    Text="Currencies"/>
+                <Grid
+                    Style="{StaticResource pageTopGridLayoutTitle}">
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"
+                        Style="{StaticResource pageTopTitleLabel}"
+                        FontFamily="{StaticResource FontAwesomeSolid}"
+                        Text="&#xf51e;"/>
+                    <Label 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource pageTopTitleLabel}"
+                        Text="Currencies"/>
+                </Grid>
             </StackLayout>
             <StackLayout
                 VerticalOptions="FillAndExpand"

@@ -104,13 +104,28 @@
         </Style>
 
         <Style x:Key="pageTopTitleLabel" TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="Margin" Value="0, 10, 0, 10"/>
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
+
+        <Style x:Key="pageTopGridLayoutTitle" TargetType="Grid">
+            <Setter Property="Padding" Value="0, 7, 0, 7"/>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="ColumnSpacing" Value="12"/>
+            <Setter Property="ColumnDefinitions" Value="{DynamicResource pageTopGridColumnsDefinition}"/>
+            <Setter Property="RowDefinitions" Value="{DynamicResource pageTopGridRowsDefinition}"/>
+        </Style>
+
+        <ColumnDefinitionCollection x:Key="pageTopGridColumnsDefinition">
+            <ColumnDefinition Width="2.5*" />
+            <ColumnDefinition Width="3*" />
+        </ColumnDefinitionCollection>
+        
+        <RowDefinitionCollection x:Key="pageTopGridRowsDefinition">
+            <RowDefinition Height="30"/>
+        </RowDefinitionCollection>
 
         <Style x:Key="ErrorStyle" TargetType="Label">
             <Setter Property="VerticalOptions" Value="Center" />
@@ -118,5 +133,17 @@
             <Setter Property="TextColor" Value="Red" />
         </Style>
         
+        <!-- Fonts -->
+        
+        <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeSolid">
+            <On Platform="Android" 
+          Value="FontAwesomeSolid.otf#Regular" />
+            <On Platform="iOS" 
+          Value="FontAwesomeSolid.otf" />
+            <On Platform="UWP" 
+          Value="/Assets/FontAwesomeSolid.otf" />
+        </OnPlatform>
+
     </Application.Resources>
 </Application>

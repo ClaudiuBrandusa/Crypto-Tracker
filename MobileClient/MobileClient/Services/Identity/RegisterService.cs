@@ -22,6 +22,8 @@ namespace MobileClient.Services.Identity
 
             if (result == null) return false;
 
+            if (result.StatusCode != System.Net.HttpStatusCode.OK) return false;
+
             string content = await result.Content.ReadAsStringAsync();
 
             if (string.IsNullOrEmpty(content)) return false;
