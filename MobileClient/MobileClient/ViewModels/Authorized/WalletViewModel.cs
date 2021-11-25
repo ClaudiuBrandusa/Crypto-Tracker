@@ -17,7 +17,7 @@ namespace MobileClient.ViewModels.Authorized
             set
             {
                 _selectedCurrency = value;
-                navigation.NavigateTo(new CurrencyDetailViewModel(navigation, value));
+                navigation.NavigateTo(new CurrencyDetailViewModel(navigation));
             }
         }
 

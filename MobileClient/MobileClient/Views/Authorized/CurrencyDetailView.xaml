@@ -7,6 +7,10 @@
         <StackLayout
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
+            <Label
+                TextColor="{StaticResource priceChangeColor}"
+                Text="&#xf30c;"
+                FontFamily="{StaticResource FontAwesomeSolid}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

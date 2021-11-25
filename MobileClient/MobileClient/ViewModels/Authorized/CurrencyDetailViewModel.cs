@@ -10,9 +10,9 @@ namespace MobileClient.ViewModels.Authorized
     {
         public CurrencyModel Model { get; }
 
-        public CurrencyDetailViewModel(INavigationService navigation, CurrencyModel model) : base(navigation)
+        public CurrencyDetailViewModel(INavigationService navigation) : base(navigation)
         {
-            Model = model;
+            Model = new CurrencyModel { Name = "a", Price = 10, PriceChange = 30};
         }
     }
 }

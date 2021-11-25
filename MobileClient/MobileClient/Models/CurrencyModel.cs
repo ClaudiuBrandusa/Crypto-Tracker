@@ -10,5 +10,6 @@ namespace MobileClient.Models
         public string Name { get; set; }
         public float Price { get; set; }
         public float Owned { get; set; }
+        public float PriceChange { get; set; }
     }
 }
